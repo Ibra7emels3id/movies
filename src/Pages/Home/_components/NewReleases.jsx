@@ -4,12 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useAuthContext } from '../../../Context/context';
 import { Autoplay } from 'swiper/modules';
 
 const NewReleases = () => {
     const { movies } = useAuthContext()
+    const navigator = useNavigate()
     // Handle Sort Data
     const moviesSort = movies.sort((a, b) => b.release_date - a.release_date);
 
@@ -61,7 +62,7 @@ const NewReleases = () => {
                 className="mySwiper h-[400px] max-md:h-[550px]"
             >
                 {moviesSort?.map((item) => (
-                    <SwiperSlide style={{
+                    <SwiperSlide onClick={()=> navigator('/movie/'+item?.id+'')} style={{
                         backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0)),
                         url(${import.meta.env.VITE_PUBLIC_IMAGE_BASE_URL}/t/p/original/${item?.poster_path})`,
                         backgroundSize: 'cover',

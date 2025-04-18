@@ -7,11 +7,11 @@ export const AuthProviderContext = ({ children }) => {
     const [movies, setMovies] = useState([])
     const [tv, setTv] = useState([])
     const [naw , setNaw] = useState([])
-
     const [page, setPage] = useState(1)
-    const [dataId, setDataId] = useState({})
+    const [post, setDataId] = useState({})
+    const [postId , setPostId] = useState(null)
 
-    console.log(tv);
+    console.log(post);
     // console.log(dataId);
 
     // Get Data Api Movies
@@ -59,8 +59,8 @@ export const AuthProviderContext = ({ children }) => {
     }
 
     useEffect(() => {
-        getDataById(324544)
-    }, []);
+        getDataById(postId)
+    }, [postId]);
 
 
     // UseEffect 
@@ -73,7 +73,7 @@ export const AuthProviderContext = ({ children }) => {
 
 
 
-    return <AuthContext.Provider value={{ setPage, page, movies , tv , naw }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ setPage, page, movies , tv , naw , setPostId , post }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuthContext = () => useContext(AuthContext)
