@@ -62,7 +62,10 @@ const NewReleases = () => {
                 className="mySwiper h-[400px] max-md:h-[550px]"
             >
                 {moviesSort?.map((item) => (
-                    <SwiperSlide onClick={()=> navigator('/movie/'+item?.id+'')} style={{
+                    <SwiperSlide onClick={() => {
+                        navigator('/movie/' + item?.id);
+                        window.scrollTo(0, 0);
+                    }} style={{
                         backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0)),
                         url(${import.meta.env.VITE_PUBLIC_IMAGE_BASE_URL}/t/p/original/${item?.poster_path})`,
                         backgroundSize: 'cover',

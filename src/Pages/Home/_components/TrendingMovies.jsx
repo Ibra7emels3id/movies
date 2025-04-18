@@ -5,11 +5,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useAuthContext } from '../../../Context/context';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Autoplay } from 'swiper/modules';
 
 const TrendingMovies = () => {
     const { movies } = useAuthContext()
+    const navigator = useNavigate()
+
+
+
+
+    
     return (
         <div className='py-10 px-4'>
             <div className="title mb-5 flex items-center justify-between">
@@ -57,7 +63,10 @@ const TrendingMovies = () => {
                 className="mySwiper h-[400px] max-md:h-[550px]"
             >
                 {movies?.slice(0, 10).map((item) => (
-                    <SwiperSlide style={{
+                    <SwiperSlide onClick={() => {
+                        navigator('/movie/' + item?.id);
+                        window.scrollTo(0, 0);
+                    }} style={{
                         backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0)),
                         url(${import.meta.env.VITE_PUBLIC_IMAGE_BASE_URL}/t/p/original/${item?.poster_path})`,
                         backgroundSize: 'cover',

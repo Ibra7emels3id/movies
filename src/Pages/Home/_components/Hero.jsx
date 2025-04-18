@@ -21,7 +21,7 @@ const Hero = () => {
         <Swiper
             spaceBetween={30}
             effect={'fade'}
-            navigation={true}
+            // navigation={true}
             loop={true}
             autoplay={{
                 delay: 4500,

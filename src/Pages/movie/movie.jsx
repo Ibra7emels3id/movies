@@ -3,9 +3,10 @@ import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import { useAuthContext } from '../../Context/context';
 import { useParams } from 'react-router';
+import Loading from '../../Components/Loading';
 
 const Movie = () => {
-    const { post, setPostId } = useAuthContext()
+    const { post, setPostId , loadingId } = useAuthContext()
     const { id } = useParams();
 
 
@@ -15,6 +16,10 @@ const Movie = () => {
             setPostId(id)
         }
     }, [id]);
+
+
+    // Set Loading 
+    if (loadingId) return <Loading/>
 
     return (
         <>
