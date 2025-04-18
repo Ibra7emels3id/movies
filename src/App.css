@@ -1,0 +1,9 @@
+#root {
+  
+}
+.swiper-pagination-bullet-active{
+    width: 17px !important;
+    height: 8px !important;
+    border-radius: 10px !important;
+    background-color: orange !important;
+}
