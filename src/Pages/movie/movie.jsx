@@ -34,9 +34,9 @@ const Movie = () => {
                                     poster={`${import.meta.env.VITE_PUBLIC_IMAGE_BASE_URL}/t/p/original/${post?.backdrop_path}`}
                                     className="w-full h-auto rounded-xl"
                                 >
-                                    <source src="/public/video.mp4" type="video/mp4" media="(min-width: 1024px)" />
-                                    <source src="/public/video.mp4" type="video/mp4" media="(min-width: 768px)" />
-                                    <source src="/public/video.mp4" type="video/mp4" />
+                                    <source src="https://www.veed.io/view/ff994a83-a0a3-4e8d-a18f-b24e23f64621?panel=" type="video/mp4" media="(min-width: 1024px)" />
+                                    <source src="https://www.veed.io/view/ff994a83-a0a3-4e8d-a18f-b24e23f64621?panel=" type="video/mp4" media="(min-width: 768px)" />
+                                    <source src="https://www.veed.io/view/ff994a83-a0a3-4e8d-a18f-b24e23f64621?panel=" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
